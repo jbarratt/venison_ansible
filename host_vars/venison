@@ -1,0 +1,2 @@
+tmp_dir: '/home/vagrant/'
+webserver_group: 'www-data'

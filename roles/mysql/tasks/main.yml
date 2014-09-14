@@ -1,0 +1,9 @@
+- name: "Install mysql"
+  yum: name=mysql state=installed
+
+- name: "Ensure Apache Starts On Boot"
+  service: name=httpd enabled=yes
+
+- name: "Copy apache config"
+  template: src=httpd.conf.j2 dest={{ apache_conf_path }}{{ apache_conf_file }} owner=root mode=0644 backup=yes
+  notify: restart apache

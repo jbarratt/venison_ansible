@@ -1,0 +1,5 @@
+- hosts: venison
+  sudo: yes
+- include: common.yml
+- include: nginx.yml
+- include: httpd.yml

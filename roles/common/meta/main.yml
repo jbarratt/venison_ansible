@@ -1,0 +1,5 @@
+---
+dependencies:
+    - { role: goozbach.EPEL, epel_testing_enabled: 1 }
+    - { role: goozbach.EPEL, epel_enabled: 1 }
+    - { role: geerlingguy.repo-remi }

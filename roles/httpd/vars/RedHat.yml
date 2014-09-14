@@ -1,0 +1,8 @@
+httpd_package: 'httpd'
+httpd_base_dir: '/etc/httpd/'
+httpd_conf_dir: '{{ httpd_base_dir }}conf/'
+httpd_conf_file: 'httpd.conf'
+httpd_port: '7080'
+httpd_include_dirs: 
+  - '{{ httpd_base_dir }}sites-enabled/'
+  - '{{ httpd_base_dir }}sites-available/'

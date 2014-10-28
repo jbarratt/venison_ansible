@@ -1,0 +1,13 @@
+nginx_base_dir: "/etc/nginx/"
+nginx_conf_dir: "{{ nginx_base_dir }}conf/"
+pagespeed_cache_dir: "{{ nginx_base_dir }}ngx_pagespeed_cache"
+nginx_log_dir: '/var/log/nginx/'
+nginx_package: "nginx_1.6.2~squeeze_amd64.deb"
+nginx_user: "www-data"
+nginx_group: "www-data"
+nginx_port: '80'
+nginx_version: "1.6.2"
+pagespeed_version: "1.9.32.1"
+nginx_include_dirs:
+  - '/etc/nginx/sites-available/'
+  - '/etc/nginx/sites-enabled/'

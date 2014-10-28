@@ -1,0 +1,29 @@
+ - include_vars: "ubuntu.yml"
+
+- name: "Create nginx user"
+  user: name={{ nginx_user }} group={{ webserver_group }} shell='/bin/false'
+
+- name: "Upload nginx package"
+  copy: src="{{ nginx_package }}" dest="/tmp"
+
+- name: "Install nginx"
+  apt: deb="/tmp/{{ nginx_package }}" state="present"
+
+- name: "Create pagespeed cache dir"
+  file: state=directory path={{ pagespeed_cache_dir }} owner={{ nginx_user }} group={{ webserver_group }}
+
+- name: "Create nginx log dir"
+  file: state=directory path={{ nginx_log_dir }} owner={{ nginx_user }} group={{ webserver_group }}
+
+- name: "Create nginx include dirs"
+  file: state=directory path={{ item }}
+  with_items: nginx_include_dirs
+
+- name: "Create nginx init script"
+  copy: src='nginx.init' dest='/etc/init.d/nginx' mode=744
+
+- name: "Create nginx conf"
+  template: src='nginx.conf.j2' dest={{ nginx_conf_dir }}nginx.conf backup=yes 
+
+- name: "Ensure Nginx Starts On Boot"
+  service: name=nginx enabled=yes

@@ -1,3 +1,0 @@
-- hosts: venison
-  roles:
-    - common

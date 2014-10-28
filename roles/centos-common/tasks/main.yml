@@ -1,0 +1,14 @@
+- name: "Install dev tools"
+  yum: name="@Development tools" state=present
+  when: ansible_pkg_mgr == 'yum'
+
+- name: "Install {{ item }}"
+  yum: name={{ item }} state=present
+  with_items: yum_packages
+  when: ansible_pkg_mgr == 'yum'
+
+- name: "Create tmp dir for build"
+  file: state=directory path={{ tmp_dir }}
+
+- name: "Create webserver group"
+  group: name={{ webserver_group }} state=present

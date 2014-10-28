@@ -12,3 +12,6 @@ It defaults to Centos, but if you want to use Ubuntu, set the `VENISON_UBUNTU`
 environment variable; for example:
 
 `$ declare -x VENISON_UBUNTU=1`
+
+Package builder from
+https://gist.github.com/gottaloveit/6409571

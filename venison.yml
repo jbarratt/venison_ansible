@@ -1,5 +1,11 @@
-- hosts: venison
+- hosts: all
+  tasks:
+    - group_by: key={{ ansible_distribution }}
+
+- hosts: CentOS
   sudo: yes
-- include: common.yml
+- include: centos-common.yml
+
+- hosts: venison
 - include: nginx.yml
 - include: httpd.yml

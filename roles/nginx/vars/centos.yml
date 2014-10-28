@@ -1,0 +1,20 @@
+nginx_base_dir: "/etc/nginx/"
+nginx_conf_dir: "{{ nginx_base_dir }}conf/"
+pagespeed_cache_dir: "{{ nginx_base_dir }}ngx_pagespeed_cache"
+nginx_log_dir: '/var/log/nginx/'
+nginx_user: "nginx"
+nginx_group: "www-data"
+nginx_port: '80'
+nginx_version: "1.6.0"
+pagespeed_version: "1.8.31.4"
+download_tars:
+  nginx: "http://nginx.org/download/nginx-{{ nginx_version }}.tar.gz"
+download_zips:
+  cache_purge: "https://github.com/FRiCKLE/ngx_cache_purge/archive/master.zip"
+  headers_more: "https://github.com/agentzh/headers-more-nginx-module/archive/master.zip"
+  pagespeed: "https://github.com/pagespeed/ngx_pagespeed/archive/release-{{ pagespeed_version }}-beta.zip"
+psol_url: "https://dl.google.com/dl/page-speed/psol/{{ pagespeed_version }}.tar.gz"
+pagespeed_dir: "ngx_pagespeed-release-{{ pagespeed_version }}-beta/"
+nginx_include_dirs:
+  - '/etc/nginx/sites-available/'
+  - '/etc/nginx/sites-enabled/'

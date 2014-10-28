@@ -1,4 +1,0 @@
-yum_packages:
-  - "pcre-devel"
-  - "openssl-devel"
-  - "geoip-devel"
